@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Claim Your Profile</title>
+</head>
+<body>
+
+<h2>Find Your Lawyer Profile</h2>
+
+<input type="text" id="searchName" placeholder="Enter your name">
+<button onclick="searchLawyer()">Search</button>
+
+<div id="results"></div>
+
+<hr>
+
+<h3>Confirm Claim</h3>
+<input type="text" id="enrolment" placeholder="Enter Enrolment Number">
+<button onclick="claimProfile()">Claim Profile</button>
+
+<p id="msg"></p>
+
+<script src="firebase.js"></script>
+<script src="claim.js"></script>
+
+</body>
+</html>
