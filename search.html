@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find a Lawyer</title>
+</head>
+<body>
+
+<h2>Find Lawyers Near You</h2>
+
+<select id="country" onchange="loadStates()">
+  <option value="">Select Country</option>
+  <option value="India">India</option>
+</select>
+
+<select id="state" onchange="loadDistricts()">
+  <option value="">Select State</option>
+</select>
+
+<select id="district" onchange="searchLawyers()">
+  <option value="">Select District</option>
+</select>
+
+<hr>
+
+<div id="lawyer-list"></div>
+
+<script src="firebase.js"></script>
+<script src="search.js"></script>
+
+</body>
+</html>
