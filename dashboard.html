@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h2 id="welcome"></h2>
+
+<div id="client-section" style="display:none;">
+  <a href="join.html">Find Lawyers</a>
+</div>
+
+<div id="lawyer-section" style="display:none;">
+  <p>Your profile is under review</p>
+</div>
+
+<script src="firebase.js"></script>
+<script>
+firebase.auth().onAuthStateChanged(user => {
+  if (!user) {
+    window.location.href = "auth.html";
+    return;
+  }
+
+  firebase.firestore().collection("users").doc(user.uid).get()
+    .then(doc => {
+      const role = doc.data().role;
+      document.getElementById("welcome").innerText = "Welcome " + role;
+
+      if (role === "client") {
+        document.getElementById("client-section").style.display = "block";
+      }
+
+      if (role === "lawyer") {
+        document.getElementById("lawyer-section").style.display = "block";
+      }
+    });
+});
+</script>
+
+</body>
+</html>
